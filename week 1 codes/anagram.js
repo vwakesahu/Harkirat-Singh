@@ -11,7 +11,7 @@ function sorting(str) {
   return string;
 }
 
-var ans = isAnagram("aaahhhww", "wwaasahhh");
+var ans = isAnagram("aaahrhhww", "hhhaaaww");
 console.log(ans);
 
 
