@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Form</title>
+</head>
+
+<script>
+    function onPress() {
+        fetch("http://localhost:3000/todos", {
+            method: "GET",
+        }).then((res) => res.json().then((data) => {
+            console.log(data)
+        }))
+    }
+
+    // function onPress() {
+    //     fetch("http://localhost:3000/todos", {
+    //         method: "GET"
+    //     }).then((res) => {
+    //         console.log(res)
+    //     })
+    // }
+</script>
+
+<body>
+
+    <!-- <form action="" method="post"> -->
+    <label for="todoTitle">Todo Title:</label>
+    <input type="text" id="todoTitle" name="todoTitle" required>
+
+    <br>
+
+    <label for="todoDescription">Todo Description:</label>
+    <textarea id="todoDescription" name="todoDescription" rows="4" required></textarea>
+
+    <br>
+
+    <input type="submit" onclick="onPress()" value="Submit">
+
+
+    <div>
+        <h1>Todo List</h1>
+        <ul id="todoList"></ul>
+    </div>
+    <!-- </form> -->
+
+
+
+
+
+</body>
+
+</html>
