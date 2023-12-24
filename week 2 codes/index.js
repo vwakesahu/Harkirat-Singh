@@ -14,6 +14,11 @@ function handleDontKnowRequest(req, res) {
   //passing variable using query
   var lastIndex = parseInt(req.query.n2);
   var startIndex = parseInt(req.query.n1);
+
+  //passing variable using header
+  // var lastIndex = parseInt(req.headers.n2);
+  // var startIndex = parseInt(req.headers.n1);
+
   const calculatedSum = calSum(startIndex, lastIndex);
   console.log(calculatedSum);
   res.send(`Answer ${calculatedSum}`);
@@ -22,9 +27,8 @@ function handleFirstRequest(req, res) {
   res.send("Hello World");
 }
 
-
 //Browsers URL bar sends only get request http://localhost:3000/dontknow
-app.get("/", handleFirstRequest);
+// app.get("/", handleFirstRequest);
 app.get("/dontknow", handleDontKnowRequest);
 
 //POST request can be sent by using postman client: http://localhost:3000/postRequest

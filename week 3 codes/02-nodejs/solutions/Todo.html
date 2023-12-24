@@ -8,12 +8,30 @@
 </head>
 
 <script>
-    function onPress() {
+    function showTodos() {
         fetch("http://localhost:3000/todos", {
             method: "GET",
         }).then((res) => res.json().then((data) => {
-            console.log(data)
+            console.log(data.title);
+            console.log(data.description);
+            console.log(data);
+
+            var todoList = document.getElementById("todoList");
+            var listItem = document.createElement("li");
+            if (data != []) {
+                listItem.textContent = "title :" + data.title + "/nDescription: " + data.description;
+                todoList.appendChild(listItem);
+            } else {
+                alert("Empty array!");
+            }
+
+
         }))
+    }
+
+    function onPress() {
+        var title = document.getElementById("todoTitle").value;
+        var desc = document.getElementById("todoDescription").value;
     }
 
     // function onPress() {
@@ -39,18 +57,13 @@
     <br>
 
     <input type="submit" onclick="onPress()" value="Submit">
-
+    <button onclick="showTodos()">Show todos</button>
 
     <div>
         <h1>Todo List</h1>
         <ul id="todoList"></ul>
     </div>
     <!-- </form> -->
-
-
-
-
-
 </body>
 
 </html>
